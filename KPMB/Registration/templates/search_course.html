@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Course</title>
+
+    <style>
+        h1{
+            color: blue;
+        }
+        body {
+            background-color: rgb(241, 241, 159);
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>WELCOME TO KPM BERANANG</h1>
+    <strong>SEARCH COURSE</strong><br><br>
+
+    <form action="" method="get">     
+        Enter Course : <input type="text" name="c_code">
+        <input type="submit" value="SEARCH">
+    </form>
+
+    <p>
+        {% for value in data %}
+            code : {{value.code}} <br><br>
+            description : {{value.description}}
+        {% endfor %}
+    </p>
+    <br><br>
+
+    <a href="{% url 'index' %}">HOME</a>
+
+    
+
+</body>
+
+<form action="" method="get" id="category">
+    <input type="hidden" name="user_id" value="{{ alluser.custid }}">
+      <select name="category" class="opt-cat" id="opt-cat" required>
+      <option value="" class="opt-cat">Select Menu category</option>
+      <option value="Food" class="opt-cat" name="category"> Food</option>
+      <option value="Drink" class="opt-cat" name="category"> Drink</option>
+      <input type="submit" value="Search" class="opt-cat" />
+      </select>
+</form> 
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+    <script>
+      function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+      document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+      }
+  
+      function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+      document.body.style.backgroundColor = "white";
+      }
+      </script>
+   
+   
+</body>
+</html>   yg ni tgk tirah punya lagi better
+
+</html>

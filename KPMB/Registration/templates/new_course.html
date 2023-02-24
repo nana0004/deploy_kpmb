@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Course</title>
+
+    <style>
+        h1{
+            color: blue;
+        }
+        body {
+            background-color: rgb(184, 235, 184);
+        }
+    </style>
+
+</head>
+<body>
+    <h1>WELCOME TO KPM BERANANG</h1>
+
+    <h3>COURSE</h3>
+
+    <form action="course" method="post">
+        {% csrf_token %}    
+            Course Code :
+            <input type="text", name="code">
+            <br><br>
+            Description :
+            <input type="text", name="desc">
+            <br><br>
+            <input type="submit" value="SAVE">
+            <button><a href="{% url 'index' %}" style="text-decoration: none">BACK</a></button>
+    </form>
+
+    <br><br><br>
+    {{message}}
+
+</body>
+</html>
+
+
+
+{% if item != None %}
+        {% if number_cat != 0 %}
+          
+            <h4>List of {{category}} menu</h4>
+        
+            <table>
+                <tr >
+                    
+                    <td> Menu title</td>
+                    <td>Price (RM)</td>
+                    <td>Available quantity</td>
+                    <td>code</td>
+                    <td></td>
+                </tr>
+
+                {% for data in item%}
+                
+                <tr>
+                    <td>{{data.ItemName}}</td>
+                    <td>{{data.price}}</td>
+                    <td>{{data.quantity}}</td>
+                    <td>{{data.Itemcode}}</td>
+                    
+                    
+                    
+                    <td ><a class="check-out" href="{% url 'order' data.Itemcode %}?user_id={{alluser.custid }}">Check Out</a></td>
+                </tr>
+              
+            
+                {% endfor %}
+        
+            </table>
+        
+        {% else %}
+          
+            
+            <table> 
+                    <td> Menu title</td>
+                    <td>Price (RM)</td>
+                    <td>Available quantity</td>
+                    <td>code</td>
+                    <td></td>
+                
+                {% for data in allitem%}
+                <tr>
+                    <td>{{data.ItemName}}</td>
+                    <td>{{data.price}}</td>
+                    <td>{{data.quantity}}</td>
+                    <td>{{data.Itemcode}}</td>
+                    
+                    
+                    
+                    <td ><a class="check-out" href="{% url 'order' data.Itemcode %}?user_id={{alluser.custid }}">Check Out</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+            
+                
+            
+        {% endif %}
+    {% endif %}
+  
+
+
+    <script>
+      function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+      document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+      }
+  
+      function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+      document.body.style.backgroundColor = "white";
+      }
+      </script>
+   
+   
+</body>
+</html>   yg ni tgk tirah punya lagi better  
